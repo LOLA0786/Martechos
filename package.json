@@ -1,7 +1,7 @@
 {
-  "name": "martechos-ai-suite",
-  "version": "1.0.0",
-  "description": "AI-powered marketing suite for creative generation, compliance checking, and analytics",
+  "name": "martechos-pro",
+  "version": "3.0.0",
+  "description": "AI-Powered Marketing Platform with Multi-Variant Testing and Advanced Analytics",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -9,15 +9,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "AI",
-    "marketing",
-    "advertising",
-    "creative",
-    "DPDP",
-    "compliance",
-    "analytics",
-    "india",
-    "martech"
+    "AI-marketing",
+    "multi-variant-testing",
+    "creative-generation",
+    "ab-testing",
+    "performance-analytics",
+    "dpdp-compliance",
+    "india-marketing"
   ],
   "author": "LOLA0786",
   "license": "MIT",
@@ -25,17 +23,10 @@
     "type": "git",
     "url": "https://github.com/LOLA0786/Martechos.git"
   },
-  "bugs": {
-    "url": "https://github.com/LOLA0786/Martechos/issues"
-  },
-  "homepage": "https://github.com/LOLA0786/Martechos#readme",
   "dependencies": {
     "express": "^4.18.2",
     "cors": "^2.8.5",
     "axios": "^1.6.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.1"
   },
   "engines": {
     "node": ">=18.0.0"

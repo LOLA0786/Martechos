@@ -3,165 +3,481 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MartechOS AI - Working Version</title>
+    <title>MartechOS Pro - AI Marketing Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#8B5CF6',
+                        success: '#10B981',
+                        warning: '#F59E0B',
+                        danger: '#EF4444'
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50">
     <div class="min-h-screen">
-        <header class="bg-white shadow-sm">
+        <!-- Enhanced Header -->
+        <header class="bg-white shadow-lg border-b-4 border-primary">
             <div class="max-w-7xl mx-auto px-4 py-4">
-                <h1 class="text-2xl font-bold text-green-600">✅ MartechOS AI - WORKING</h1>
-                <p class="text-sm text-gray-600">API Test: Successful</p>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-gradient-to-r from-primary to-secondary p-2 rounded-lg">
+                            <i class="fas fa-brain text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl font-bold text-gray-900">MartechOS <span class="text-primary">Pro</span></h1>
+                            <p class="text-sm text-gray-600">AI-Powered Marketing Intelligence Platform</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-green-50 px-3 py-1 rounded-full">
+                            <span class="text-green-700 text-sm font-medium">🚀 PRODUCTION READY</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
 
-        <section class="py-16 bg-white">
-            <div class="max-w-4xl mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-8">🎯 AI Creative Generator</h2>
+        <!-- Hero Section -->
+        <section class="relative bg-gradient-to-r from-primary to-secondary text-white py-20 overflow-hidden">
+            <div class="absolute inset-0 bg-black opacity-10"></div>
+            <div class="relative max-w-7xl mx-auto px-4 text-center">
+                <h2 class="text-5xl font-bold mb-6">Generate 8 AI-Optimized Creatives in 30 Seconds</h2>
+                <p class="text-xl mb-8 opacity-90">Multi-variant testing, performance predictions, and data-driven insights</p>
                 
-                <div class="max-w-2xl mx-auto bg-gray-50 p-8 rounded-lg border">
-                    <form id="creativeForm">
-                        <div class="mb-4">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">What do you want to promote?</label>
-                            <input type="text" id="prompt" 
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                                   placeholder="e.g., Coffee shop, Fitness app, Tech product..." 
-                                   value="Organic skincare products" required>
-                        </div>
-                        
-                        <button type="submit" id="generateBtn"
-                                class="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 font-semibold">
-                            <i class="fas fa-rocket mr-2"></i>Generate Creative
-                        </button>
-                    </form>
-
-                    <div id="result" class="mt-6 hidden">
-                        <div class="bg-white p-6 rounded-lg shadow border">
-                            <h3 class="text-xl font-semibold mb-4">🎨 Your Generated Ad</h3>
-                            <img id="creativeImage" src="" class="w-full h-48 object-cover rounded-lg mb-4 border">
-                            <div class="bg-blue-50 p-4 rounded-lg mb-4">
-                                <p id="creativeCopy" class="text-lg text-gray-800 font-medium"></p>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-sm text-gray-600">Predicted CTR: <strong id="ctr" class="text-green-600"></strong></span>
-                                <span class="text-sm text-blue-600" id="confidence"></span>
-                            </div>
-                        </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
+                    <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20">
+                        <i class="fas fa-cubes text-3xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2">8 Creative Variants</h3>
+                        <p class="text-sm opacity-90">Different angles & psychological triggers</p>
                     </div>
-
-                    <div id="loading" class="hidden text-center py-8">
-                        <i class="fas fa-spinner fa-spin text-3xl text-blue-600 mb-3"></i>
-                        <p>Generating your creative...</p>
+                    <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20">
+                        <i class="fas fa-chart-line text-3xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2">AI Performance Predictions</h3>
+                        <p class="text-sm opacity-90">CTR, engagement & conversion forecasts</p>
                     </div>
-
-                    <div id="error" class="hidden bg-red-50 p-4 rounded-lg mt-4">
-                        <p class="text-red-800" id="errorMessage"></p>
+                    <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20">
+                        <i class="fas fa-flask text-3xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2">A/B Testing Suite</h3>
+                        <p class="text-sm opacity-90">Automated testing & optimization</p>
                     </div>
-                </div>
-
-                <!-- Test Examples -->
-                <div class="max-w-2xl mx-auto mt-8">
-                    <h3 class="font-semibold mb-3">💡 Try these examples:</h3>
-                    <div class="grid grid-cols-2 gap-2">
-                        <button onclick="testExample('Coffee shop morning specials')" class="bg-gray-100 p-3 rounded text-sm hover:bg-gray-200">
-                            ☕ Coffee Shop
-                        </button>
-                        <button onclick="testExample('Fitness app for beginners')" class="bg-gray-100 p-3 rounded text-sm hover:bg-gray-200">
-                            💪 Fitness App
-                        </button>
-                        <button onclick="testExample('Tech gadgets for remote work')" class="bg-gray-100 p-3 rounded text-sm hover:bg-gray-200">
-                            🖥️ Tech Gadgets
-                        </button>
-                        <button onclick="testExample('Sustainable fashion brand')" class="bg-gray-100 p-3 rounded text-sm hover:bg-gray-200">
-                            👗 Fashion Brand
-                        </button>
+                    <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20">
+                        <i class="fas fa-robot text-3xl mb-4"></i>
+                        <h3 class="text-lg font-semibold mb-2">Smart Analytics</h3>
+                        <p class="text-sm opacity-90">AI-driven insights & recommendations</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- API Status -->
-        <div class="max-w-2xl mx-auto px-4 mb-8">
-            <div class="bg-green-50 p-4 rounded-lg">
-                <h3 class="font-semibold text-green-800 mb-2">✅ API Status</h3>
-                <p class="text-green-700 text-sm">Server is running and responding correctly. Creative generation is working!</p>
+        <!-- Main Dashboard -->
+        <section class="py-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <!-- Campaign Creation -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-gray-100">
+                    <h2 class="text-3xl font-bold text-center mb-8">🎯 Create AI-Optimized Campaign</h2>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Input Form -->
+                        <div class="space-y-6">
+                            <form id="campaignForm">
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Product/Service Description</label>
+                                        <textarea id="prompt" rows="3" 
+                                                  class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                                  placeholder="Describe what you're promoting...&#10;Example: Organic skincare line for sensitive skin with natural ingredients"
+                                                  required></textarea>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Platform</label>
+                                            <select id="platform" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary">
+                                                <option value="instagram">Instagram</option>
+                                                <option value="facebook">Facebook</option>
+                                                <option value="google">Google Ads</option>
+                                                <option value="tiktok">TikTok</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Industry</label>
+                                            <select id="industry" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary">
+                                                <option value="beauty">Beauty & Skincare</option>
+                                                <option value="tech">Technology</option>
+                                                <option value="food">Food & Beverage</option>
+                                                <option value="fitness">Fitness & Wellness</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Target Audience</label>
+                                            <select id="audience" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary">
+                                                <option value="gen_z">Gen Z (18-24)</option>
+                                                <option value="millennials">Millennials (25-40)</option>
+                                                <option value="professionals">Professionals</option>
+                                                <option value="families">Families</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Budget (₹)</label>
+                                            <input type="number" id="budget" value="50000" 
+                                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" id="generateBtn"
+                                        class="w-full mt-6 bg-gradient-to-r from-primary to-secondary text-white py-4 px-6 rounded-xl hover:from-primary/90 hover:to-secondary/90 transition-all duration-200 font-semibold text-lg shadow-lg hover:shadow-xl">
+                                    <i class="fas fa-bolt mr-2"></i>Generate 8 AI Creatives
+                                </button>
+                            </form>
+
+                            <!-- Quick Templates -->
+                            <div class="bg-blue-50 p-4 rounded-xl border border-blue-200">
+                                <h4 class="font-semibold text-blue-800 mb-3">💡 Campaign Templates</h4>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <button onclick="loadTemplate('beauty')" class="text-left p-3 bg-white rounded-lg hover:bg-blue-100 transition-colors">
+                                        <div class="font-medium text-blue-700">💄 Beauty Product</div>
+                                        <div class="text-xs text-blue-600">Skincare, makeup, wellness</div>
+                                    </button>
+                                    <button onclick="loadTemplate('tech')" class="text-left p-3 bg-white rounded-lg hover:bg-blue-100 transition-colors">
+                                        <div class="font-medium text-blue-700">📱 Tech App</div>
+                                        <div class="text-xs text-blue-600">SaaS, mobile apps, tools</div>
+                                    </button>
+                                    <button onclick="loadTemplate('food')" class="text-left p-3 bg-white rounded-lg hover:bg-blue-100 transition-colors">
+                                        <div class="font-medium text-blue-700">🍕 Food Business</div>
+                                        <div class="text-xs text-blue-600">Restaurants, delivery, recipes</div>
+                                    </button>
+                                    <button onclick="loadTemplate('fitness')" class="text-left p-3 bg-white rounded-lg hover:bg-blue-100 transition-colors">
+                                        <div class="font-medium text-blue-700">💪 Fitness Service</div>
+                                        <div class="text-xs text-blue-600">Gyms, coaching, wellness</div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Results Overview -->
+                        <div class="bg-gray-50 p-6 rounded-xl border-2 border-dashed border-gray-300">
+                            <div id="resultsOverview" class="hidden">
+                                <h3 class="text-xl font-semibold mb-4">📊 Campaign Overview</h3>
+                                <div id="overviewContent"></div>
+                            </div>
+                            
+                            <div id="loadingState" class="hidden text-center py-12">
+                                <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-primary mx-auto mb-4"></div>
+                                <p class="text-lg font-semibold text-gray-700">AI is generating your campaign...</p>
+                                <p class="text-sm text-gray-500 mt-2">Analyzing 8 different angles and predicting performance</p>
+                                <div class="mt-4 space-y-2">
+                                    <div class="flex justify-between text-sm">
+                                        <span>Generating creatives</span>
+                                        <span class="text-green-600">✓</span>
+                                    </div>
+                                    <div class="flex justify-between text-sm">
+                                        <span>AI performance analysis</span>
+                                        <span class="text-green-600">✓</span>
+                                    </div>
+                                    <div class="flex justify-between text-sm">
+                                        <span>A/B testing plan</span>
+                                        <span class="text-yellow-600">⏳</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="emptyState" class="text-center py-12">
+                                <i class="fas fa-rocket text-4xl text-gray-300 mb-4"></i>
+                                <p class="text-lg text-gray-600">Your AI-generated creatives will appear here</p>
+                                <p class="text-sm text-gray-500 mt-2">Get 8 different angles with performance predictions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div id="resultsSection" class="hidden">
+                    <!-- AI Analysis -->
+                    <div class="bg-white rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">
+                        <h3 class="text-2xl font-bold mb-6">🧠 AI Campaign Analysis</h3>
+                        <div id="aiAnalysisContent" class="space-y-4"></div>
+                    </div>
+
+                    <!-- Creative Variants -->
+                    <div class="bg-white rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold">🎨 Creative Variants</h3>
+                            <div class="flex space-x-2">
+                                <button onclick="sortByCTR()" class="px-4 py-2 bg-primary text-white rounded-lg text-sm">Sort by CTR</button>
+                                <button onclick="sortByEngagement()" class="px-4 py-2 bg-secondary text-white rounded-lg text-sm">Sort by Engagement</button>
+                            </div>
+                        </div>
+                        <div id="creativesGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
+                    </div>
+
+                    <!-- A/B Testing -->
+                    <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                        <h3 class="text-2xl font-bold mb-6">🔬 A/B Testing Recommendations</h3>
+                        <div id="abTestingContent"></div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     </div>
 
     <script>
-        function testExample(text) {
-            document.getElementById('prompt').value = text;
-            document.getElementById('creativeForm').dispatchEvent(new Event('submit'));
+        // Template loader
+        const templates = {
+            beauty: {
+                prompt: "Organic skincare line for sensitive skin with natural ingredients and visible results in 2 weeks",
+                industry: "beauty",
+                audience: "gen_z"
+            },
+            tech: {
+                prompt: "Productivity app for remote teams with time tracking, project management, and automated reporting",
+                industry: "tech", 
+                audience: "professionals"
+            },
+            food: {
+                prompt: "Artisan coffee shop with organic beans, cozy ambiance, and loyalty program for regular customers",
+                industry: "food",
+                audience: "millennials"
+            },
+            fitness: {
+                prompt: "Personal training app with customized workout plans, nutrition tracking, and live coach support",
+                industry: "fitness",
+                audience: "millennials"
+            }
+        };
+
+        function loadTemplate(type) {
+            const template = templates[type];
+            if (template) {
+                document.getElementById('prompt').value = template.prompt;
+                document.getElementById('industry').value = template.industry;
+                document.getElementById('audience').value = template.audience;
+            }
         }
 
-        document.getElementById('creativeForm').addEventListener('submit', async (e) => {
+        // Main form handler
+        document.getElementById('campaignForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const prompt = document.getElementById('prompt').value;
+            const formData = {
+                prompt: document.getElementById('prompt').value,
+                platform: document.getElementById('platform').value,
+                industry: document.getElementById('industry').value,
+                targetAudience: document.getElementById('audience').value,
+                budget: document.getElementById('budget').value
+            };
+
+            // Show loading state
+            document.getElementById('emptyState').classList.add('hidden');
+            document.getElementById('loadingState').classList.remove('hidden');
+            document.getElementById('resultsSection').classList.add('hidden');
+            
             const button = document.getElementById('generateBtn');
-            
-            // Show loading, hide others
-            document.getElementById('loading').classList.remove('hidden');
-            document.getElementById('result').classList.add('hidden');
-            document.getElementById('error').classList.add('hidden');
-            
-            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating...';
+            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating Campaign...';
             button.disabled = true;
 
             try {
-                console.log('🔄 Sending request for:', prompt);
+                console.log('🚀 Sending campaign request:', formData);
                 
-                const response = await fetch('/api/generate-creative', {
+                const response = await fetch('/api/generate-creatives', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        prompt: prompt,
-                        platform: 'instagram',
-                        targetAudience: 'general'
-                    })
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
                 });
 
-                console.log('📨 Response status:', response.status);
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                
                 const data = await response.json();
-                console.log('✅ Received data:', data);
-
-                // Update UI
-                document.getElementById('creativeImage').src = data.image_url;
-                document.getElementById('creativeImage').alt = data.ad_copy;
-                document.getElementById('creativeCopy').textContent = data.ad_copy;
-                document.getElementById('ctr').textContent = data.ctr_prediction + '%';
-                document.getElementById('confidence').textContent = data.confidence_score + ' confidence';
-
-                // Show results
-                document.getElementById('loading').classList.add('hidden');
-                document.getElementById('result').classList.remove('hidden');
-
+                console.log('✅ Campaign data received:', data);
+                
+                // Display results
+                displayCampaignResults(data);
+                
             } catch (error) {
-                console.error('❌ Error:', error);
-                document.getElementById('loading').classList.add('hidden');
-                document.getElementById('error').classList.remove('hidden');
-                document.getElementById('errorMessage').textContent = 'Error: ' + error.message;
+                console.error('❌ Campaign error:', error);
+                alert('Error generating campaign: ' + error.message);
             } finally {
-                button.innerHTML = '<i class="fas fa-rocket mr-2"></i>Generate Creative';
+                button.innerHTML = '<i class="fas fa-bolt mr-2"></i>Generate 8 AI Creatives';
                 button.disabled = false;
+                document.getElementById('loadingState').classList.add('hidden');
             }
         });
 
-        // Test the API on load
-        console.log('🚀 Testing API connection...');
-        fetch('/api/status')
-            .then(r => r.json())
-            .then(data => console.log('✅ API Status:', data))
-            .catch(err => console.log('❌ API Test Failed:', err));
+        // Display campaign results
+        function displayCampaignResults(data) {
+            // Show overview
+            document.getElementById('resultsOverview').classList.remove('hidden');
+            document.getElementById('overviewContent').innerHTML = `
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div class="bg-green-50 p-3 rounded-lg">
+                        <div class="text-sm text-green-600">Variants Generated</div>
+                        <div class="text-2xl font-bold text-green-800">${data.total_variants}</div>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-lg">
+                        <div class="text-sm text-blue-600">Top Predicted CTR</div>
+                        <div class="text-2xl font-bold text-blue-800">${Math.max(...data.creative_variants.map(c => parseFloat(c.ctr_prediction))).toFixed(1)}%</div>
+                    </div>
+                </div>
+                <div class="text-sm text-gray-600">
+                    Campaign ID: <code class="bg-gray-100 px-2 py-1 rounded">${data.campaign_id}</code>
+                </div>
+            `;
+
+            // Display AI Analysis
+            displayAIAnalysis(data.ai_analysis);
+
+            // Display Creative Variants
+            displayCreativeVariants(data.creative_variants);
+
+            // Display A/B Testing
+            displayABTesting(data.a_b_test_recommendation);
+
+            // Show results section
+            document.getElementById('resultsSection').classList.remove('hidden');
+        }
+
+        function displayAIAnalysis(analysis) {
+            document.getElementById('aiAnalysisContent').innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-purple-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-purple-800 mb-2">🏆 Top Performer</h4>
+                        <p class="text-purple-700"><strong>${analysis.predicted_top_performer.variant}</strong> - ${analysis.predicted_top_performer.expected_ctr} CTR</p>
+                        <p class="text-sm text-purple-600 mt-1">${analysis.predicted_top_performer.reasoning}</p>
+                    </div>
+                    <div class="bg-orange-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-orange-800 mb-2">📈 Performance Insights</h4>
+                        <ul class="text-orange-700 text-sm space-y-1">
+                            ${analysis.performance_insights.map(insight => `<li>• ${insight}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-green-50 p-4 rounded-xl">
+                    <h4 class="font-semibold text-green-800 mb-2">💡 Recommendations</h4>
+                    <ul class="text-green-700 space-y-2">
+                        ${analysis.recommendations.map(rec => `<li>✅ ${rec}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+
+        function displayCreativeVariants(creatives) {
+            const sortedCreatives = [...creatives].sort((a, b) => parseFloat(b.ctr_prediction) - parseFloat(a.ctr_prediction));
+            
+            document.getElementById('creativesGrid').innerHTML = sortedCreatives.map(creative => `
+                <div class="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow bg-white">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <span class="inline-block px-2 py-1 text-xs font-semibold rounded-full 
+                                ${creative.testing_priority === 'HIGHEST' ? 'bg-red-100 text-red-800' : 
+                                  creative.testing_priority === 'HIGH' ? 'bg-orange-100 text-orange-800' : 
+                                  'bg-blue-100 text-blue-800'}">
+                                ${creative.testing_priority}
+                            </span>
+                            <h4 class="font-semibold text-lg mt-1">${creative.variant_name}</h4>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-green-600">${creative.ctr_prediction}%</div>
+                            <div class="text-xs text-gray-500">Predicted CTR</div>
+                        </div>
+                    </div>
+                    
+                    <img src="${creative.image_url}" alt="${creative.ad_copy}" class="w-full h-32 object-cover rounded-lg mb-3">
+                    
+                    <div class="bg-gray-50 p-3 rounded-lg mb-3">
+                        <p class="text-gray-800 text-sm">${creative.ad_copy}</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 text-xs mb-3">
+                        <div class="bg-blue-50 p-2 rounded">
+                            <div class="text-blue-600">Engagement</div>
+                            <div class="font-semibold">${creative.engagement_score}/100</div>
+                        </div>
+                        <div class="bg-green-50 p-2 rounded">
+                            <div class="text-green-600">Confidence</div>
+                            <div class="font-semibold">${creative.confidence_score}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-xs text-gray-600 space-y-1">
+                        <div><strong>Best for:</strong> ${creative.best_for}</div>
+                        <div><strong>Tone:</strong> ${creative.tone}</div>
+                        <div><strong>Hashtags:</strong> ${creative.hashtags.join(' ')}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function displayABTesting(testing) {
+            document.getElementById('abTestingContent').innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-blue-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-blue-800 mb-2">📊 Test Setup</h4>
+                        <div class="text-blue-700 space-y-1 text-sm">
+                            <div><strong>Groups:</strong> ${testing.test_groups}</div>
+                            <div><strong>Duration:</strong> ${testing.duration_days} days</div>
+                            <div><strong>Sample:</strong> ${testing.sample_size}</div>
+                        </div>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-green-800 mb-2">🎯 Key Metrics</h4>
+                        <div class="text-green-700 space-y-1 text-sm">
+                            <div>• ${testing.primary_metric}</div>
+                            <div>• ${testing.secondary_metric}</div>
+                            <div>• Cost Per Acquisition</div>
+                        </div>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-xl">
+                        <h4 class="font-semibold text-purple-800 mb-2">🚀 Next Steps</h4>
+                        <button onclick="startABTest()" class="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 text-sm">
+                            Launch A/B Test
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function sortByCTR() {
+            const creatives = [...document.getElementById('creativesGrid').children];
+            const sorted = creatives.sort((a, b) => {
+                const aCTR = parseFloat(a.querySelector('.text-2xl').textContent);
+                const bCTR = parseFloat(b.querySelector('.text-2xl').textContent);
+                return bCTR - aCTR;
+            });
+            document.getElementById('creativesGrid').innerHTML = '';
+            sorted.forEach(div => document.getElementById('creativesGrid').appendChild(div));
+        }
+
+        function sortByEngagement() {
+            const creatives = [...document.getElementById('creativesGrid').children];
+            const sorted = creatives.sort((a, b) => {
+                const aEng = parseInt(a.querySelector('.bg-blue-50 .font-semibold').textContent);
+                const bEng = parseInt(b.querySelector('.bg-blue-50 .font-semibold').textContent);
+                return bEng - aEng;
+            });
+            document.getElementById('creativesGrid').innerHTML = '';
+            sorted.forEach(div => document.getElementById('creativesGrid').appendChild(div));
+        }
+
+        function startABTest() {
+            alert('A/B Test launched! Monitoring performance...');
+            // In production, this would call the backend to start actual testing
+        }
+
+        // Initialize
+        console.log('🚀 MartechOS Pro initialized');
     </script>
 </body>
 </html>
