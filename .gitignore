@@ -42,3 +42,4 @@ Thumbs.db
 # Deployment
 dist/
 build/
+.vercel
